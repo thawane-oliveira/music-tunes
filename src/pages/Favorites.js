@@ -1,14 +1,14 @@
 import React from 'react';
 // import { BrowserRouter, Route } from 'react-router-dom';
 
-class Login extends React.Component {
+class Favorites extends React.Component {
   render() {
     return (
-      <div data-testid="page-login">
-        <p>page-login</p>
+      <div data-testid="page-favorites">
+        <p>page-favorites</p>
       </div>
     );
   }
 }
 
-export default Login;
+export default Favorites;

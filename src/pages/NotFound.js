@@ -1,14 +1,14 @@
 import React from 'react';
 // import { BrowserRouter, Route } from 'react-router-dom';
 
-class Login extends React.Component {
+class NotFound extends React.Component {
   render() {
     return (
-      <div data-testid="page-login">
-        <p>page-login</p>
+      <div data-testid="page-not-found">
+        <p>page-not-found</p>
       </div>
     );
   }
 }
 
-export default Login;
+export default NotFound;
