@@ -1,25 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-// import { BrowserRouter, Route } from 'react-router-dom';
 
 class MusicCard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      musics: [],
-    };
-  }
-
-  componentDidMount() {
-    const { playlist } = this.props;
-    const { musics } = this.state;
-    const cuttedProps = [...playlist];
-    cuttedProps.shift();
-    this.setState({ musics: cuttedProps });
-  }
-
   render() {
-    // const { playlist } = this.props;
-    const { musics } = this.state;
+    const { musics } = this.props;
+
     return (
       <div>
         { musics.map(({ trackName, previewUrl }) => (
@@ -37,5 +22,12 @@ class MusicCard extends React.Component {
     );
   }
 }
+
+MusicCard.propTypes = {
+  musics: PropTypes.arrayOf(PropTypes.shape({
+    trackName: PropTypes.string.isRequired,
+    previewUrl: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default MusicCard;

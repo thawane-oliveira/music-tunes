@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
@@ -24,11 +24,13 @@ class Album extends React.Component {
   fetchMusic = async () => {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
-    this.setState({ playlist: musics, isLoading: false });
+    const cuttedProps = [...musics];
+    cuttedProps.shift();
+    this.setState({ musics: cuttedProps, playlist: musics, isLoading: false });
   };
 
   render() {
-    const { playlist, isLoading } = this.state;
+    const { playlist, isLoading, musics } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -39,14 +41,20 @@ class Album extends React.Component {
             <div>
               <p data-testid="artist-name">{playlist[0].artistName}</p>
               <p data-testid="album-name">{playlist[0].collectionName}</p>
-              <MusicCard playlist={ playlist } />
+              <MusicCard musics={ musics } />
             </div>)}
       </div>
     );
   }
 }
 
-// Album.propTypes = {
-// };
+Album.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+
+};
 
 export default Album;
