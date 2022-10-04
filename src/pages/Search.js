@@ -83,14 +83,13 @@ class Search extends React.Component {
         { displayResult && (
           <>
             <span>
-              {`Resultado de álbuns de:
-              ${research}`}
+              {`Resultado de álbuns de: ${research}`}
             </span>
             {
               searchResult.length === 0
                 ? <span> Nenhum álbum foi encontrado</span>
-                : searchResult.map((item, id) => (
-                  <div key={ id }>
+                : searchResult.map((item, artistId) => (
+                  <div key={ artistId }>
                     <p>{item.artistName}</p>
                     <p>{item.collectionName}</p>
                     <img src={ item.artworkUrl100 } alt={ item.artistName } />
