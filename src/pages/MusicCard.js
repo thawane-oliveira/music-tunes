@@ -8,30 +8,40 @@ class MusicCard extends React.Component {
     super(props);
 
     this.state = {
-      isLoading: false,
-      // favMusic: false,
+      isLoading: true,
     };
   }
 
-  addFavMusic = async (music) => {
-    // if (checked) { this.setState({ favMusic: true }); } else {
-    //   this.setState({ favMusic: false });
-    // }
+  componentDidMount() {
+    const { musics } = this.props;
+    const checkedMusic = musics.map((music) => ({ ...music, checked: false }));
+    this.setState({ musicList: checkedMusic, isLoading: false });
+  }
+
+  addFavMusic = async (music, e) => {
+    const { name } = e.target;
+    const { musicList } = this.state;
     this.setState({ isLoading: true });
     await addSong(music);
-    this.setState({ isLoading: false });
+
+    const clickedMusic = musicList.map((item) => {
+      if (Number(name) === item.trackId) {
+        return { ...item, checked: !item.checked };
+      }
+      return item;
+    });
+
+    this.setState({ musicList: clickedMusic, isLoading: false });
   };
 
   render() {
-    const { musics } = this.props;
-    const { isLoading } = this.state;
-
+    const { isLoading, musicList } = this.state;
     return (
       <main>
         { isLoading ? <NowLoading />
           : (
-            musics.map((music) => (
-              <div key={ music.trackName }>
+            musicList.map((music) => (
+              <div key={ music.trackId }>
                 <p>{music.trackName}</p>
                 <img src={ music.artworkUrl100 } alt={ music.trackName } />
                 <audio data-testid="audio-component" src={ music.previewUrl } controls>
@@ -42,14 +52,15 @@ class MusicCard extends React.Component {
                 </audio>
                 <label
                   data-testid={ `checkbox-music-${music.trackId}` }
-                  htmlFor="favorite"
+                  htmlFor={ music.trackId }
                 >
                   Favorita
                   <input
                     type="checkbox"
-                    name="favorite"
-                    id="favorite"
-                    onClick={ () => this.addFavMusic(music) }
+                    name={ music.trackId }
+                    id={ music.trackId }
+                    checked={ music.checked }
+                    onChange={ (e) => this.addFavMusic(music, e) }
                   />
                 </label>
               </div>
