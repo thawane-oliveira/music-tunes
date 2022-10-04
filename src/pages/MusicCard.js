@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import NowLoading from './NowLoading';
 
 class MusicCard extends React.Component {
@@ -9,6 +9,7 @@ class MusicCard extends React.Component {
 
     this.state = {
       isLoading: true,
+      // recovered: '',
     };
   }
 
@@ -16,6 +17,8 @@ class MusicCard extends React.Component {
     const { musics } = this.props;
     const checkedMusic = musics.map((music) => ({ ...music, checked: false }));
     this.setState({ musicList: checkedMusic, isLoading: false });
+
+    this.recoverFav();
   }
 
   addFavMusic = async (music, e) => {
@@ -32,6 +35,23 @@ class MusicCard extends React.Component {
     });
 
     this.setState({ musicList: clickedMusic, isLoading: false });
+  };
+
+  recoverFav = async () => {
+    const { musics } = this.props;
+
+    this.setState({ isLoading: true });
+
+    const apiResponse = await getFavoriteSongs();
+
+    this.setState({ isLoading: false });
+
+    const verify = apiResponse.some((favMsc) => favMsc.trackId === musics.trackId);
+    if (verify) {
+    //   this.setState({ checked: true });
+    // } else {
+    //   this.setState({ checked: false });
+    }
   };
 
   render() {
