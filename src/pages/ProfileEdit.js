@@ -58,6 +58,9 @@ class ProfileEdit extends React.Component {
     && image.length > 0;
 
     const condition = /^\S+@\S+\.\S+$/;
+
+    // regex extraído do tópico no link: https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript do Stackoverflow
+
     const verifyEmailRegex = email.match(condition);
 
     if (verifyEachInput && verifyEmailRegex) {
