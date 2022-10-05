@@ -25,6 +25,7 @@ class MusicCard extends React.Component {
   }
 
   addFavMusic = async (music, e) => {
+    const { setFavoriteSongs } = this.props;
     const { checked } = e.target;
     this.setState({ isLoading: true, checked });
     if (checked) {
@@ -32,6 +33,8 @@ class MusicCard extends React.Component {
     } else {
       await removeSong(music);
     }
+
+    await setFavoriteSongs();
     this.setState({ isLoading: false });
   };
 
@@ -44,6 +47,7 @@ class MusicCard extends React.Component {
           : (
             <div key={ music.trackId }>
               <p>{music.trackName}</p>
+              {/* {console.log(music.trackName)} */}
               <img src={ music.artworkUrl100 } alt={ music.trackName } />
               <audio data-testid="audio-component" src={ music.previewUrl } controls>
                 <track kind="captions" />
@@ -72,6 +76,7 @@ class MusicCard extends React.Component {
 }
 
 MusicCard.propTypes = {
+  setFavoriteSongs: PropTypes.func.isRequired,
   music: PropTypes.shape({
     trackId: PropTypes.number.isRequired,
     artworkUrl100: PropTypes.string,
