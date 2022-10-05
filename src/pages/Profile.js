@@ -29,7 +29,7 @@ class Profile extends React.Component {
           : (
             <>
               <Link to="/profile/edit">
-                Editar perfil
+                <button type="button">Editar perfil</button>
 
               </Link>
               <img
