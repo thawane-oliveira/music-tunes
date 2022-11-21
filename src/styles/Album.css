@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap') ;
+
+
+.album-name {
+  display: flex;
+  height: 10vh;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  width: 70vh;
+}
+
+.album-container {
+  display: grid;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 60vh;
+  margin: 20px auto;
+  overflow: auto;
+  padding: 20px;
+  width: 100vh;
+}
+
+.album-albumname, .album-artist {
+  font-size: 1.15em;
+  font-weight: 400;
+
+}

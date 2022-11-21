@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
+import '../styles/Login.css';
 import NowLoading from './NowLoading';
 
 class Login extends React.Component {
@@ -42,19 +43,27 @@ class Login extends React.Component {
     const { loginName, isButtonDisabled, isLoading, redirect } = this.state;
 
     return (
-      <div data-testid="page-login">
-        <fieldset>
-          <label htmlFor="login-name-input">
+      <div data-testid="page-login" className="login-container">
+        <div className="container-title">
+          <h1 className="login-title">trybetunes</h1>
+        </div>
+
+        <fieldset className="fieldset-container">
+          <label htmlFor="login-name-input" className="login-label">
+            Insira aqui o seu nome de usuário:
             <input
+              className="login-input"
               type="text"
               data-testid="login-name-input"
               name="loginName"
               id="login-name-input"
+              placeholder="Exemplo: chicharro"
               value={ loginName }
               onChange={ this.onInputChange }
             />
           </label>
           <button
+            className="login-button"
             type="button"
             data-testid="login-submit-button"
             disabled={ isButtonDisabled }

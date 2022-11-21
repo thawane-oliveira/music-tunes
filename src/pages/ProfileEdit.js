@@ -3,6 +3,7 @@ import React from 'react';
 // import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
+import '../styles/ProfileEdit.css';
 import NowLoading from './NowLoading';
 // import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -80,49 +81,58 @@ class ProfileEdit extends React.Component {
 
         { isLoading ? <NowLoading />
           : (
-            <fieldset>
-              <label htmlFor="name">
+            <fieldset className="edit-container">
+              <label className="editname-label" htmlFor="name">
                 Alterar nome de usuário
                 <input
+                  className="editname-input"
                   data-testid="edit-input-name"
                   type="text"
                   name="name"
                   value={ name }
+                  placeholder="Insira aqui seu nome de usuário"
                   onChange={ this.onInputChange }
                 />
               </label>
-              <label htmlFor="email">
+              <label htmlFor="email" className="editemail-label">
                 Alterar e-mail
                 <input
+                  className="editemail-input"
                   data-testid="edit-input-email"
                   type="text"
                   name="email"
                   value={ email }
+                  placeholder="Insira aqui seu e-mail"
                   onChange={ this.onInputChange }
                 />
               </label>
-              <label htmlFor="description">
+              <label htmlFor="description" className="editdesc-label">
                 Alterar descrição
                 <input
+                  className="editdesc-input"
                   data-testid="edit-input-description"
                   type="textArea"
                   name="description"
                   value={ description }
+                  placeholder="Insira aqui uma breve descrição sobre você"
                   onChange={ this.onInputChange }
                 />
               </label>
-              <label htmlFor="image">
+              <label htmlFor="image" className="editimg-label">
                 Alterar foto de perfil
                 <input
+                  className="editimg-input"
                   data-testid="edit-input-image"
                   type="text"
                   name="image"
                   value={ image }
+                  placeholder="Insira aqui a URL de sua foto"
                   onChange={ this.onInputChange }
                 />
               </label>
-              <div>
+              <div className="save-edit-container">
                 <button
+                  className="save-edit-button"
                   type="button"
                   data-testid="edit-button-save"
                   disabled={ isDisabled }

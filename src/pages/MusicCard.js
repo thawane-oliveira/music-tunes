@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import '../styles/MusicCard.css';
 import NowLoading from './NowLoading';
 
 class MusicCard extends React.Component {
@@ -45,11 +46,16 @@ class MusicCard extends React.Component {
       <main>
         { isLoading ? <NowLoading />
           : (
-            <div key={ music.trackId }>
-              <p>{music.trackName}</p>
+            <div className="musicplayer-container" key={ music.trackId }>
+              <p className="music-name">{music.trackName}</p>
               {/* {console.log(music.trackName)} */}
               <img src={ music.artworkUrl100 } alt={ music.trackName } />
-              <audio data-testid="audio-component" src={ music.previewUrl } controls>
+              <audio
+                className="audio-player"
+                data-testid="audio-component"
+                src={ music.previewUrl }
+                controls
+              >
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 <code>audio</code>
@@ -58,9 +64,11 @@ class MusicCard extends React.Component {
               <label
                 data-testid={ `checkbox-music-${music.trackId}` }
                 htmlFor={ music.trackId }
+                className="fav-label"
               >
                 Favorita
                 <input
+                  className="checkbox"
                   type="checkbox"
                   name={ music.trackId }
                   id={ music.trackId }

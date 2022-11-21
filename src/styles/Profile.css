@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap') ;
+
+.edit-button {
+  border-radius: 8%;
+  box-shadow: 6px 6px 15px rgb(75, 74, 74);
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 0.65em;
+  margin: 0 auto;
+}
+
+.edit-button:hover {
+  border: 2px solid gray;
+  transition: all 0.5s ease-in;
+}
+
+.profile-img {
+  border-radius: 50%;
+  box-shadow: 6px 6px 18px black;
+  height: auto;
+  margin: 0 auto;
+  max-height: 300px;
+  max-width: 300px;
+  width: auto;
+}
+
+.profile-name {
+  background-color: darkslateblue;
+  color: antiquewhite;
+  font-family: Source Sans Pro , sans-serif;
+}
+
+.profile-email {
+  background-color: darkslateblue;
+  color: antiquewhite;
+  font-family: Source Sans Pro , sans-serif;
+
+}
+
+.profile-desc {
+  background-color: darkslateblue;
+  color: antiquewhite;
+  font-family: Source Sans Pro , sans-serif;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 30vh;
+}
+
+.profile-img, .profile-name, .profile-email, .profile-desc {
+  transition: transform 0.3s;
+}
+
+.profile-img:hover, .profile-name:hover, .profile-email:hover, .profile-desc:hover {
+  transform: scale(1.1);
+}

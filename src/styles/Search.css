@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap') ;
+
+
+.search-container {
+  align-items: center;
+  background-image: url('https://i.redd.it/2naoodmy31s81.png');
+  display: flex;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 16px;
+  height: 6vh;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 60vh;
+}
+
+.search-title {
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 1.3em;
+}
+
+.search-input {
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 1.3em;
+  padding: 2%;
+}
+
+.field-search-button {
+  border-radius: 8%;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 1.3em;
+  padding: 0.8%;
+
+}
+
+.result-container {
+  display: grid;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  height: 55vh;
+  margin: 20px auto;
+  overflow: auto;
+  padding: 20px;
+  width: 100vh;
+}
+
+.result-title {
+  display: flex;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  height: 5vh;
+  justify-content: center;
+}
+
+.result-album {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 1em;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.result-name {
+  font-weight: 600;
+}
+
+.result-albumname, .result-link {
+  font-weight: 400;
+}
+
+.result-albumname {
+  text-align: center;
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Source+Sans+Pro:wght@300;400;600&display=swap') ;
+
+
+body {
+  background-image: url('https://i.redd.it/2naoodmy31s81.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* font-family: Cherry Swash , cursive; */
+  font-size: 25px;
+  height: 100vh;
+}
+
+.login-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-around;
+}
+
+.fieldset-container {
+  align-items: center;
+  background-image: url('https://i.redd.it/2naoodmy31s81.png');
+  display: flex;
+  height: 30vh;
+}
+
+.login-input {
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 0.85em;
+  margin: 0 20px;
+  padding: 4px;
+}
+
+.login-button {
+  border-radius: 8%;
+  font-family: Source Sans Pro , sans-serif;
+  font-size: 0.85em;
+}
+
+.login-title {
+  color: rgb(34, 33, 33);
+  font-family: Cherry Swash , cursive;
+  font-size: 3.75em;
+  text-shadow: 5px 5px 2px #8058c0;
+}
+
+.container-title {
+  align-items: center;
+  display: flex;
+  height: 50vh;
+  justify-content: space-around;
+}

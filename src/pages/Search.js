@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../styles/Search.css';
 import NowLoading from './NowLoading';
 
 class Search extends React.Component {
@@ -57,20 +58,24 @@ class Search extends React.Component {
         {isLoading ? <NowLoading />
 
           : (
-            <fieldset>
+            <fieldset className="search-container">
+              <h3 className="search-title">Insira aqui sua pesquisa:</h3>
 
-              <label htmlFor="searchValue">
+              <label htmlFor="searchValue" className="search-label">
                 <input
+                  className="search-input"
                   type="text"
                   data-testid="search-artist-input"
                   name="searchValue"
                   id="searchValue"
+                  placeholder="Exemplo: SNSD"
                   value={ searchValue }
                   onChange={ this.onInputChange }
                 />
               </label>
               <button
                 type="button"
+                className="field-search-button"
                 data-testid="search-artist-button"
                 disabled={ isButtonDisabled }
                 onClick={ this.onButtonClick }
@@ -81,30 +86,32 @@ class Search extends React.Component {
             </fieldset>
           )}
         { displayResult && (
-          <>
-            <span>
+          <div className="divzona">
+            <p className="result-title">
               {`Resultado de álbuns de: ${research}`}
-            </span>
-            {
-              searchResult.length === 0
-                ? <span> Nenhum álbum foi encontrado</span>
-                : searchResult.map((item, artistId) => (
-                  <div key={ artistId }>
-                    <p>{item.artistName}</p>
-                    <p>{item.collectionName}</p>
-                    <img src={ item.artworkUrl100 } alt={ item.artistName } />
+            </p>
+            <div className="result-container">
+              {
+                searchResult.length === 0
+                  ? <span className="result-title"> Nenhum álbum foi encontrado</span>
+                  : searchResult.map((item, artistId) => (
+                    <div key={ artistId } className="result-album">
+                      <p className="result-name">{item.artistName}</p>
+                      <p className="result-albumname">{item.collectionName}</p>
+                      <img src={ item.artworkUrl100 } alt={ item.artistName } />
 
-                    <Link
-                      to={ `/album/${item.collectionId}` }
-                      data-testid={ `link-to-album-${item.collectionId}` }
-                    >
-                      <p>Ir para a página do álbum</p>
-                    </Link>
+                      <Link
+                        to={ `/album/${item.collectionId}` }
+                        data-testid={ `link-to-album-${item.collectionId}` }
+                      >
+                        <p className="result-link">Ir para a página do álbum</p>
+                      </Link>
 
-                  </div>
-                ))
-            }
-          </>
+                    </div>
+                  ))
+              }
+            </div>
+          </div>
         )}
       </div>
     );

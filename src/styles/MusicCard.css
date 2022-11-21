@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap') ;
+
+.musicplayer-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+  justify-content: space-between;
+}
+
+.music-name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.fav-label {
+  font-size: 15px;
+  height: 5vh;
+}

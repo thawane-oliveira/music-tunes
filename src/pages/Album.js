@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
+import '../styles/Album.css';
 import MusicCard from './MusicCard';
 import NowLoading from './NowLoading';
 // import { BrowserRouter, Route } from 'react-router-dom';
@@ -45,17 +46,32 @@ class Album extends React.Component {
         {isLoading
           ? <NowLoading />
           : (
-            <div>
-              <p data-testid="artist-name">{playlist[0].artistName}</p>
-              <p data-testid="album-name">{playlist[0].collectionName}</p>
-              {musics.map((item) => (
-                <MusicCard
-                  key={ item.trackId }
-                  music={ item }
-                  setFavoriteSongs={ this.setFavoriteSongs }
-                />
-              ))}
-            </div>)}
+            <>
+              <div className="album-name">
+                <p
+                  data-testid="artist-name"
+                  className="album-artist"
+                >
+                  {playlist[0].artistName}
+                </p>
+                <p
+                  data-testid="album-name"
+                  className="album-albumname"
+                >
+                  {playlist[0].collectionName}
+                </p>
+              </div>
+              <div className="album-container">
+                {musics.map((item) => (
+                  <MusicCard
+                    key={ item.trackId }
+                    music={ item }
+                    setFavoriteSongs={ this.setFavoriteSongs }
+                  />
+                ))}
+              </div>
+            </>
+          )}
       </div>
     );
   }
