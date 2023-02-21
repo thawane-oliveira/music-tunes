@@ -1,13 +1,30 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+<h2>Music Tunes</h2>
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Projeto realizado com o objetivo de pesquisar e reproduzir músicas de diversos artistas, sendo possível também criar uma lista de músicas favoritas e editar o perfil de quem logar na aplicação.</br>
+Foi utilizado do princípio de requisições assíncronas junto do React, passagem de informações via props, testes de cobertura etc.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+<h3>Tecnologias utilizadas</h3>
+
+<li>JavaScript</li>
+<li>React</li>
+<li>CSS</li>
+
+<h3>Instalando Dependências</h3>
+
+Em seu terminal:</br> 
+cd music-tunes/</br>
+npm install ou npm i
+
+<h3>Visualizando em seu navegador</h3>
+
+Em seu terminal:</br>
+cd music-tunes/</br>
+npm start
+
+<h3>Rodando os testes da aplicação</h3>
+
+Em seu terminal:</br>
+cd music-tunes/</br>
+npm test
+
+<img src="https://imgur.com/uTTLZc4.png" alt="imagem do projeto music tunes"  min-width="400px" max-width="600px" width="600px" />
